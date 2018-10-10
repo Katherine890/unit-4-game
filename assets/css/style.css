@@ -2,6 +2,7 @@ body {
     background: url("../images/diamond_upholstery/diamond_upholstery_@2X.png")
 }
 
+/* crystal buttons */
 input {
     width: 110px;
     height: 110px;
@@ -13,6 +14,7 @@ input:hover {
     border: 3px solid #7F1F1F;
 }
 
+/* title of game */
 header {
     background-color: #7F1F1F;
     color: white;
@@ -22,6 +24,7 @@ header {
     padding: 1px;
 }
 
+/* game instructions */
 .content {
     background-color:#3F3F3F;
     color: white;
@@ -33,15 +36,20 @@ header {
     top: 10px;
 }
 
+/* Random number */
 .random-number {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
     color: white;
     background-color: #001076;
-    width: 250px;
-    height: 110px;
+    padding: 5px;
+    width: 240px;
+    height: 100px;
     position: relative;
     top: 20px;
 }
 
+/* Wins and Losses */
 .wins-losses {
     background-color: #3F3F3F;
     width: 90px;
@@ -54,6 +62,7 @@ header {
     bottom: 108px;
 }
 
+/* the user's score */
 .total-score {
     color: white;
     background-color: #7F1F1F;
@@ -65,10 +74,13 @@ header {
 }
 
 .score-number {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
     color: white;
     background-color: #7F1F1F;
-    width: 260px;
-    height: 120px;
+    padding: 5px;
+    width: 250px;
+    height: 110px;
     position: relative;
     bottom: 90px;
 }
