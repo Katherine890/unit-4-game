@@ -84,3 +84,18 @@ header {
     position: relative;
     bottom: 90px;
 }
+
+/* Play Again button */
+#play-again {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 90px;
+    height: 35px;
+    color: white;
+    background-color: #7F1F1F;
+    position: relative;
+    bottom: 70px;
+}
+
+button:hover {
+    border: 5px solid #7F1F1F;
+}

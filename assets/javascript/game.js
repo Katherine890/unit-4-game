@@ -1,4 +1,5 @@
 $(document).ready(function () {
+        $("#play-again").hide(); 
 
         // RANDOM NUMBER 
         const random = [19, 20,                                                                                    // array of random numbers
@@ -9,18 +10,37 @@ $(document).ready(function () {
                 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116,
                 117, 118, 119, 120];
 
-        var randNum = Math.floor((Math.random() * (random.length - 1)));                                          // This randomizes the numbers in the array.
+        var randNum = Math.floor((Math.random() * (random.length - 1)));                                          // This randomizes the numbers in the array between 19-120.
         var randomValue = random[randNum];                                                                        // randomValue generates the random number.
-        var randomNumber = new Array(randomValue.length);                                                         // This creates a new array of random numbers 19-120.
-        for (var i = 0; i < randomNumber.length; i++) {
                 $(".random-number").text(randomValue);
                 console.log(randomValue);                                                                         // Displays random number.
-        }
+                newGame();
 
-        // Variables for wins and losses
+
+                function newGame() {
+                  $(".score-number").text(counter = 0);
+                  $(".wins").text(wins = 0);
+                  $(".losses").text(losses = 0);
+                  console.log(counter);
+                }
+
+        // Gobal variables for wins and losses
         var wins = 0;
         var losses = 0;
         var counter = 0;
+
+        // This is local storage for the wins.
+        if (typeof storedWin !== 'undefined') {
+        $(".wins").text(storedWin);
+
+        }
+
+        // This is local storage for the losses.
+        if (typeof storedLoss !== 'undefined') {
+        $(".losses").text(storedLoss);
+        
+        }
+
 
         // Each time the user clicks the crystal the counter adds to the amount the crystal contains.
 
@@ -31,16 +51,34 @@ $(document).ready(function () {
         var blueValue = blueOptions[randNumB];                                     // blueValue generates the random number.               
                 console.log(blueValue);                                            // Displays random number of blue crystal in the console.
 
-        $("#blue-gem").on("click", function () {                                   // this adds counter value to the blueValue each time blue crystal is clicked. 
+        $("#blue-gem").on("click", function () {                                   // this adds blueValue to the counter each time blue crystal is clicked. 
                 $(".score-number").text(counter += blueValue);
                 console.log(counter);
 
-                if (counter === randomValue) {
+                if (counter === randomValue) {                                     // Wins increase by 1 when counter matches random number.
                         wins++
+                        localStorage.setItem("totalWin", wins);                    // storing the number of wins.
+                        let storedWin = localStorage.getItem("totalWin").length++; 
+                        $(".wins").text(storedWin);
+                        console.log(storedWin);
+                        $("#play-again").show();
+                        alert("You Win!");
+
                 }
-                else if (counter >= randomValue) {
+                else if (counter >= randomValue) {                                 // Losses increase by 1 when counter is greater than random number.
                         losses++
+                        localStorage.setItem("totalLoss", losses);                     // storing the number of losses.
+                        let storedLoss = localStorage.getItem("totalLoss").length++;
+                        $(".losses").text(storedLoss);
+                        console.log(storedLoss);
+                        $("#play-again").show();
+                        alert("You Lose!");
                 }
+
+                $("#play-again").on("click", function () {
+                        startOver();
+                })
+          
                 console.log(wins);
                 console.log(losses);
                 
@@ -57,16 +95,33 @@ $(document).ready(function () {
         var greenValue = greenOptions[randNumG];                                   // greenValue generates the random number.
                 console.log(greenValue);                                           // Displays random number of green crystal in the console.
 
-        $("#green-gem").on("click", function () {                                  // this adds counter value to the greenValue each time blue crystal is clicked.
+        $("#green-gem").on("click", function () {                                  // this adds greenValue to the counter each time green crystal is clicked.
                 $(".score-number").text(counter += greenValue);
                 console.log(counter);
 
-                if (counter === randomValue) {
+                if (counter === randomValue) {                                     // Wins increase by 1 when counter matches random number.
                         wins++
+                        localStorage.setItem("totalWin", wins);                    // storing the number of wins.
+                        let storedWin = localStorage.getItem("totalWin").length++; 
+                        $(".wins").text(storedWin);
+                        console.log(storedWin);
+                        $("#play-again").show();
+                        alert("You Win!");
                 }
-                else if (counter >= randomValue) {
+                else if (counter >= randomValue) {                                 // Losses increase by 1 when counter is greater than random number.
                         losses++
+                        localStorage.setItem("totalLoss", losses);                     // storing the number of losses.
+                        let storedLoss = localStorage.getItem("totalLoss").length++;
+                        $(".losses").text(storedLoss);
+                        console.log(storedLoss);
+                        $("#play-again").show();
+                        alert("You Lose!");
                 }
+
+                $("#play-again").on("click", function () {
+                        startOver();
+                })
+
                 console.log(wins);
                 console.log(losses);
                 
@@ -84,16 +139,33 @@ $(document).ready(function () {
         var purpleValue = purpleOptions[randNumP];                                 // purpleValue generates the random number.
                 console.log(purpleValue);                                          // Displays random number of purple crystal in the console.
 
-        $("#purple-gem").on("click", function () {                                 // this adds counter value to the purpleValue each time blue crystal is clicked.
+        $("#purple-gem").on("click", function () {                                 // this adds purpleValue to the counter each time purple crystal is clicked.
                 $(".score-number").text(counter += purpleValue);
                 console.log(counter);
 
-                if (counter === randomValue) {
+                if (counter === randomValue) {                                     // Wins increase by 1 when counter matches random number.
                         wins++
+                        localStorage.setItem("totalWin", wins);                    // storing the number of wins.
+                        let storedWin = localStorage.getItem("totalWin").length++; 
+                        $(".wins").text(storedWin);
+                        console.log(storedWin);
+                        $("#play-again").show();
+                        alert("You Win!");
                 }
-                else if (counter >= randomValue) {
+                else if (counter >= randomValue) {                                 // Losses increase by 1 when counter is greater than random number.
                         losses++
+                        localStorage.setItem("totalLoss", losses);                     // storing the number of losses.
+                        let storedLoss = localStorage.getItem("totalLoss").length++;
+                        $(".losses").text(storedLoss);
+                        console.log(storedLoss);
+                        $("#play-again").show();
+                        alert("You Lose!");
                 }
+
+                $("#play-again").on("click", function () {
+                        startOver();
+                })
+
                 console.log(wins);
                 console.log(losses);
                 
@@ -111,16 +183,33 @@ $(document).ready(function () {
         var redValue = redOptions[randNumR];                                      // redValue generates the random number.
                 console.log(redValue);                                            // Displays random number of red crystal in the console.
 
-        $("#red-gem").on("click", function () {                                   // this adds counter value to the redValue each time blue crystal is clicked.
+        $("#red-gem").on("click", function () {                                   // this adds redValue to the counter each time red crystal is clicked.
                 $(".score-number").text(counter += redValue);
                 console.log(counter);
 
-                if (counter === randomValue) {
+                if (counter === randomValue) {                                    // Wins increase by 1 when counter matches random number.
                         wins++
+                        localStorage.setItem("totalWin", wins);                    // storing the number of wins.
+                        let storedWin = localStorage.getItem("totalWin").length++; 
+                        $(".wins").text(storedWin);
+                        console.log(storedWin);
+                        $("#play-again").show();
+                        alert("You Win!");
                 }
-                else if (counter >= randomValue) {
+                else if (counter >= randomValue) {                                // Losses increase by 1 when counter is greater than random number.
                         losses++
+                        localStorage.setItem("totalLoss", losses);                     // storing the number of losses.
+                        let storedLoss = localStorage.getItem("totalLoss").length++;
+                        $(".losses").text(storedLoss);
+                        console.log(storedLoss);
+                        $("#play-again").show();
+                        alert("You Lose!");
                 }
+
+                $("#play-again").on("click", function () {
+                        startOver();
+                })
+                
                 console.log(wins);
                 console.log(losses);
                 
@@ -131,10 +220,6 @@ $(document).ready(function () {
 
         });
        
-
-        // User score is added with each click of the crystal until the score equals the random number.
-        // Wins increase by 1 when user score matches random number.
-        // Losses increase by 1 when user score is greater than random number.
         // Each crystal is assigned a different number and new random number is generated after the game has a win or a loss (reset).
 });
 
