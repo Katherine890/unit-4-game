@@ -1,5 +1,7 @@
 body {
-    background: url("../images/diamond_upholstery/diamond_upholstery_@2X.png")
+    background: url("../images/star-wars-wallpaper.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
 }
 
 /* crystal buttons */
